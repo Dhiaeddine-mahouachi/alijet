@@ -5,6 +5,28 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     /* ==========================
+       MOBILE HAMBURGER MENU
+    ========================== */
+    const menuToggle = document.getElementById("menuToggle");
+    const navMenu = document.getElementById("navMenu");
+    const navLinksList = document.querySelectorAll("nav a");
+
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener("click", () => {
+            menuToggle.classList.toggle("open");
+            navMenu.classList.toggle("open");
+        });
+
+        // Close menu when a link is clicked
+        navLinksList.forEach(link => {
+            link.addEventListener("click", () => {
+                menuToggle.classList.remove("open");
+                navMenu.classList.remove("open");
+            });
+        });
+    }
+
+    /* ==========================
        STICKY HEADER
     ========================== */
 
